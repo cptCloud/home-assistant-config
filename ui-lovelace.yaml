@@ -45,7 +45,7 @@ views:
         title: Lumières
         entities:
           - entity: switch.lumiere_entree_exterieure
-          - entity: switch.salon
+          - entity: light.salon
           - entity: light.entree_exterieur
             name: Extension petit salon 1
           - entity: light.entree_interieur

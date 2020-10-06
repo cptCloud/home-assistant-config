@@ -45,6 +45,7 @@ tplink:
   discovery: false
   switch:
     host: !secret switch1
+  dimmer:
     host: !secret dimmer1
  
 speedtestdotnet:

@@ -1,0 +1,133 @@
+- id: notif_hydro
+  alias: Nofitication_hydroQC_yesterday_conso
+  trigger:
+  - entity_id: sensor.hydroquebec_yesterday_consumption
+    platform: state
+  action:
+  - data:
+      message: 'Yesterday consumption: {{states.sensor.hydroquebec_yesterday_consumption.state}}kWh
+        at {{states.sensor.hydroquebec_yesterday_temperature.state}}C VS {{states.sensor.hydroquebec_yesterday_compare_total_consumption.state}}kWh
+        at {{states.sensor.hydroquebec_yesterday_compare_average_temperature.state}}C'
+    service: notify.sdi_py
+  initial_state: true
+- id: notif_ip
+  alias: Notify Of New External IP
+  trigger:
+  - entity_id: sensor.my_external_ip
+    platform: state
+  action:
+  - data:
+      message: 'IP changed: {{states.sensor.my_external_ip.state}}'
+    service: notify.sdi_py
+  initial_state: true
+- id: notif_temp_high
+  alias: Notification_abnormal_high_temperature
+  trigger:
+  - above: '23'
+    entity_id: sensor.temperature_si7021
+    platform: numeric_state
+  action:
+  - data:
+      message: 'Abnormal high temperature detected: {{states.sensor.temperature_si7021.state}}°C'
+    service: notify.sdi_py
+- id: notif_temp_low
+  alias: Notification_abnormal_low_temperature
+  trigger:
+    below: '15'
+    entity_id: sensor.temperature_si7021
+    platform: numeric_state
+  action:
+  - data:
+      message: 'Abnormal low temperature detected: {{states.sensor.temperature_si7021.state}}°C'
+    service: notify.sdi_py
+- id: notif_HA_start
+  alias: Notification HA started
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+  - service: notify.sdi_py
+    data:
+      message: Home Assistant started
+- id: notif_HA_update
+  alias: Notification HA update
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.ha_upstream
+    above: '0'
+  action:
+  - service: notify.sdi_py
+    data:
+      message: Update {{ states.updater.updater.state }} {{ states.sensor.ha_upstream.state
+        }} for Home Assistant is available. (Installed version is {{states.sensor.installed_ha_version.state}})
+- id: notif_disk_full
+  alias: Notification Disk Space Full
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.disk_use_percent
+    above: '80'
+  action:
+  - service: notify.sdi_py
+    data:
+      message: Raspberry disk space is {{states.sensor.disk_use_percent.state}}% full
+- id: frontlight_on_evening
+  alias: Rule 1 Light on in the evening
+  trigger:
+  - event: sunset
+    offset: -00:00:00
+    platform: sun
+  action:
+  - service: notify.sdi_py
+    data:
+      message: Front light turned ON
+  - service: switch.turn_on
+    entity_id: switch.lumiere_entree_exterieure
+- id: frontlight_off_morning
+  alias: Rule 2 Light off in the morning
+  trigger:
+  - event: sunrise
+    platform: sun
+  action:
+  - service: notify.sdi_py
+    data:
+      message: Front light turned OFF
+  - service: switch.turn_off
+    entity_id: switch.lumiere_entree_exterieure
+- id: '1570388424221'
+  alias: aqi
+  trigger:
+  - above: '30'
+    entity_id: sensor.waqi_aeroport_de_montreal_montreal_canada
+    for:
+      minutes: 1
+    platform: numeric_state
+  condition: []
+  action:
+  - service: notify.sdi_py
+    data:
+      message: AQI depasse 30
+- alias: Eteindre_chauffage_vide_sanitaire
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.power_chauffage_vide_sanitaire
+    above: '15'
+  action:
+  - service: notify.sdi_py
+    data:
+      message: Chauffage vide sanitaire overload. Eteint d'urgence
+  - service: mqtt.publish
+    data:
+      topic: cmnd/sonoff_vide_sanitaire/POWER
+      payload: 'OFF'
+- alias: Power state on HA start-up
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/sonoff_vide_sanitaire/state
+      payload: ''
+  - service: mqtt.publish
+    data:
+      topic: cmnd/sonoff_vide_sanitaire/POWER

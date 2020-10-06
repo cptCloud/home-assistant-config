@@ -1,0 +1,161 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+views:
+  - title: System
+    path: system
+    panel: false
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - sensor.speedtest_download
+          - sensor.speedtest_ping
+          - sensor.speedtest_upload
+      - type: history-graph
+        entities:
+          - entity: sensor.speedtest_download
+          - entity: sensor.speedtest_upload
+          - entity: sensor.speedtest_ping
+        hours_to_show: 12
+        refresh_interval: 0
+      - type: entities
+        entities:
+          - device_tracker.pixel
+          - sensor.pixel_battery_health
+          - sensor.pixel_bluetooth_connection
+          - sensor.pixel_charger_type
+          - sensor.pixel_do_not_disturb_sensor
+          - sensor.pixel_geocoded_location
+          - sensor.pixel_internal_storage
+          - binary_sensor.pixel_is_charging
+          - sensor.pixel_last_reboot
+          - sensor.pixel_light_sensor
+          - sensor.pixel_next_alarm
+          - sensor.pixel_pressure_sensor
+          - sensor.pixel_proximity_sensor
+          - sensor.pixel_ringer_mode
+          - sensor.pixel_wifi_connection
+  - title: Rooms
+    path: rooms
+    badges: []
+    cards:
+      - type: entities
+        title: Lumières
+        entities:
+          - entity: switch.lumiere_entree_exterieure
+          - entity: switch.salon
+          - entity: light.entree_exterieur
+            name: Extension petit salon 1
+          - entity: light.entree_interieur
+            name: Extension petit salon 2
+          - entity: light.extension_2
+            name: Extension passage
+        state_color: true
+      - type: entities
+        entities:
+          - entity: sensor.humidty_xiaomi_f7ff
+            name: Chambre Nathan
+          - entity: sensor.humidty_xiaomi_b871
+            name: Chambre Maîtres
+          - entity: sensor.humidty_xiaomi_ed49
+            name: Salon
+          - entity: sensor.humidty_xiaomi_b495
+            name: Extension
+          - entity: sensor.humidty_xiaomi_c59e
+            name: Salle technique
+      - type: entities
+        entities:
+          - entity: sensor.temperature_xiaomi_f7ff
+            name: Chambre Nathan
+          - entity: sensor.temperature_xiaomi_b871
+            name: Chambre Maîtres
+          - entity: sensor.temperature_xiaomi_ed49
+            name: Salon
+          - entity: sensor.temperature_xiaomi_b495
+            name: Extension
+          - entity: sensor.temperature_xiaomi_c59e
+            name: Salle technique
+      - type: entities
+        entities:
+          - entity: sensor.humidty_xiaomi_b459
+            name: Entretoit extension
+          - entity: sensor.humidty_xiaomi_f7ca
+            name: Entretoit maison
+          - entity: sensor.humidty_xiaomi_d2cb
+            name: Vide sanitaire
+          - entity: weather.environment_canada
+            type: attribute
+            attribute: humidity
+            name: Humidité extérieure
+            suffix: "%"
+            icon: 'mdi:water-percent'
+            
+      - type: entities
+        entities:
+          - entity: sensor.temperature_xiaomi_b459
+            name: Entretoit extension
+          - entity: sensor.temperature_xiaomi_f7ca
+            name: Entretoit maison
+          - entity: sensor.temperature_xiaomi_d2cb
+            name: Vide sanitaire
+      - type: history-graph
+        entities:
+          - entity: sensor.humidty_xiaomi_f7ca
+            name: Entretoit maison
+          - entity: sensor.humidty_xiaomi_c59e
+            name: Salle technique
+          - entity: sensor.humidty_xiaomi_f7ff
+            name: Chambre Nathan
+          - entity: sensor.humidty_xiaomi_b871
+            name: Chambre Maîtres
+          - entity: sensor.humidty_xiaomi_ed49
+            name: Salon
+          - entity: sensor.humidty_xiaomi_b459
+            name: Entretoit extension
+          - entity: sensor.humidty_xiaomi_b495
+            name: Extension
+        refresh_interval: 0
+        hours_to_show: 24
+        title: Humidité
+      - type: history-graph
+        entities:
+          - entity: sensor.temperature_xiaomi_f7ca
+            name: Entretoit maison
+          - entity: sensor.temperature_xiaomi_c59e
+            name: Salle technique
+          - entity: sensor.temperature_xiaomi_f7ff
+            name: Chambre Nathan
+          - entity: sensor.temperature_xiaomi_b871
+            name: Chambre Maîtres
+          - entity: sensor.temperature_xiaomi_ed49
+            name: Salon
+          - entity: sensor.temperature_xiaomi_b459
+            name: Entretoit extension
+          - entity: sensor.temperature_xiaomi_b495
+            name: Extension
+        hours_to_show: 24
+        refresh_interval: 0
+        title: Température
+  - title: Weather
+    path: weather
+    badges: []
+    cards:
+      - type: entities
+        title: My Title
+        entities:
+          - entity: sensor.windknots
+      - type: weather-forecast
+        entity: weather.environment_canada
+      - type: history-graph
+        entities:
+          - entity: sensor.waqi_aeroport_de_montreal_montreal_canada
+        hours_to_show: 24
+        refresh_interval: 0
+        title: WAQI
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml

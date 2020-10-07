@@ -56,7 +56,7 @@ views:
       - type: entities
         entities:
           - entity: sensor.humidty_xiaomi_f7ff
-            name: Chambre Nathan
+            name: Chambre Mauve
           - entity: sensor.humidty_xiaomi_b871
             name: Chambre Maîtres
           - entity: sensor.humidty_xiaomi_ed49
@@ -68,7 +68,7 @@ views:
       - type: entities
         entities:
           - entity: sensor.temperature_xiaomi_f7ff
-            name: Chambre Nathan
+            name: Chambre Mauve
           - entity: sensor.temperature_xiaomi_b871
             name: Chambre Maîtres
           - entity: sensor.temperature_xiaomi_ed49
@@ -107,7 +107,7 @@ views:
           - entity: sensor.humidty_xiaomi_c59e
             name: Salle technique
           - entity: sensor.humidty_xiaomi_f7ff
-            name: Chambre Nathan
+            name: Chambre Mauve
           - entity: sensor.humidty_xiaomi_b871
             name: Chambre Maîtres
           - entity: sensor.humidty_xiaomi_ed49
@@ -126,7 +126,7 @@ views:
           - entity: sensor.temperature_xiaomi_c59e
             name: Salle technique
           - entity: sensor.temperature_xiaomi_f7ff
-            name: Chambre Nathan
+            name: Chambre Mauve
           - entity: sensor.temperature_xiaomi_b871
             name: Chambre Maîtres
           - entity: sensor.temperature_xiaomi_ed49

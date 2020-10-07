@@ -39,7 +39,7 @@ sun:
 weather:
   - platform: environment_canada
     name: "Environment Canada"
-    station: QC/s0000635
+    station: !secret environment_canada_station
 
 tplink:
   discovery: false

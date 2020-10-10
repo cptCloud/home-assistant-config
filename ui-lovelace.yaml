@@ -58,7 +58,7 @@ views:
           - entity: sensor.humidty_xiaomi_f7ff
             name: Chambre Mauve
           - entity: sensor.humidty_xiaomi_b871
-            name: Chambre Maîtres
+            name: Salle de bain
           - entity: sensor.humidty_xiaomi_ed49
             name: Salon
           - entity: sensor.humidty_xiaomi_b495
@@ -70,7 +70,7 @@ views:
           - entity: sensor.temperature_xiaomi_f7ff
             name: Chambre Mauve
           - entity: sensor.temperature_xiaomi_b871
-            name: Chambre Maîtres
+            name: Salle de bain
           - entity: sensor.temperature_xiaomi_ed49
             name: Salon
           - entity: sensor.temperature_xiaomi_b495
@@ -109,7 +109,7 @@ views:
           - entity: sensor.humidty_xiaomi_f7ff
             name: Chambre Mauve
           - entity: sensor.humidty_xiaomi_b871
-            name: Chambre Maîtres
+            name: Salle de bain
           - entity: sensor.humidty_xiaomi_ed49
             name: Salon
           - entity: sensor.humidty_xiaomi_b459
@@ -128,7 +128,7 @@ views:
           - entity: sensor.temperature_xiaomi_f7ff
             name: Chambre Mauve
           - entity: sensor.temperature_xiaomi_b871
-            name: Chambre Maîtres
+            name: Salle de bain
           - entity: sensor.temperature_xiaomi_ed49
             name: Salon
           - entity: sensor.temperature_xiaomi_b459

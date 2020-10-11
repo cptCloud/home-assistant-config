@@ -5,8 +5,8 @@
     platform: state
   action:
   - data:
-      message: 'Yesterday consumption: {{states.sensor.hydroquebec_yesterday_consumption.state}}kWh
-        at {{states.sensor.hydroquebec_yesterday_temperature.state}}C VS {{states.sensor.hydroquebec_yesterday_compare_total_consumption.state}}kWh
+      message: 'Yesterday consumption: {{states.sensor.hydroquebec_yesterday_total_consumption.state}}kWh
+        at {{states.sensor.hydroquebec_yesterday_average_temperature.state}}C VS {{states.sensor.hydroquebec_yesterday_compare_total_consumption.state}}kWh
         at {{states.sensor.hydroquebec_yesterday_compare_average_temperature.state}}C'
     service: notify.sdi_py
   initial_state: true

@@ -138,6 +138,15 @@ views:
         hours_to_show: 24
         refresh_interval: 0
         title: Température
+      - type: history-graph
+        entities:
+          - entity: sensor.hydroquebec_yesterday_average_temperature
+            name: Yesterday average temperature
+          - entity: sensor.hydroquebec_yesterday_total_consumption
+            name: Yesterday total consumption
+        hours_to_show: 168
+        refresh_interval: 0
+        title: HydroQuebec
   - title: Weather
     path: weather
     badges: []

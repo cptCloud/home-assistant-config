@@ -46,12 +46,6 @@ views:
         entities:
           - entity: switch.lumiere_entree_exterieure
           - entity: light.salon
-          - entity: light.entree_exterieur
-            name: Extension petit salon 1
-          - entity: light.entree_interieur
-            name: Extension petit salon 2
-          - entity: light.extension_2
-            name: Extension passage
         state_color: true
       - type: entities
         entities:
@@ -85,13 +79,8 @@ views:
             name: Entretoit maison
           - entity: sensor.humidty_xiaomi_d2cb
             name: Vide sanitaire
-          - entity: weather.environment_canada
-            type: attribute
-            attribute: humidity
+          - entity: sensor.exterior_humidity
             name: Humidité extérieure
-            suffix: "%"
-            icon: 'mdi:water-percent'
-            
       - type: entities
         entities:
           - entity: sensor.temperature_xiaomi_b459
@@ -100,6 +89,8 @@ views:
             name: Entretoit maison
           - entity: sensor.temperature_xiaomi_d2cb
             name: Vide sanitaire
+          - entity: sensor.exterior_temperature
+            name: Température extérieure
       - type: history-graph
         entities:
           - entity: sensor.humidty_xiaomi_f7ca
@@ -116,6 +107,8 @@ views:
             name: Entretoit extension
           - entity: sensor.humidty_xiaomi_b495
             name: Extension
+          - entity: sensor.exterior_humidity
+            name: Extérieur
         refresh_interval: 0
         hours_to_show: 24
         title: Humidité
@@ -135,6 +128,8 @@ views:
             name: Entretoit extension
           - entity: sensor.temperature_xiaomi_b495
             name: Extension
+          - entity: sensor.exterior_temperature
+            name: Extérieur
         hours_to_show: 24
         refresh_interval: 0
         title: Température
@@ -163,6 +158,26 @@ views:
         hours_to_show: 24
         refresh_interval: 0
         title: WAQI
+  - title: Humidité issue
+    path: humidite
+    badges: []
+    cards:
+      - type: history-graph
+        entities:
+          - entity: sensor.humidty_xiaomi_f7ca
+            name: maison
+          - entity: sensor.humidty_xiaomi_b459
+            name: extension
+          - entity: sensor.exterior_humidity
+            name: exterieur
+          - entity: sensor.temperature_xiaomi_f7ca
+            name: maison
+          - entity: sensor.temperature_xiaomi_b459
+            name: extension
+          - entity: sensor.exterior_temperature
+            name: exterieur
+        refresh_interval: 0
+        hours_to_show: 320
 
 group: !include groups.yaml
 automation: !include automations.yaml

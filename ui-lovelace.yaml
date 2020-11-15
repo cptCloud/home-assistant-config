@@ -49,24 +49,16 @@ views:
         state_color: true
       - type: entities
         entities:
-          - entity: sensor.humidty_xiaomi_f7ff
-            name: Chambre Mauve
           - entity: sensor.humidty_xiaomi_b871
             name: Salle de bain
-          - entity: sensor.humidty_xiaomi_ed49
-            name: Salon
           - entity: sensor.humidty_xiaomi_b495
             name: Extension
           - entity: sensor.humidty_xiaomi_c59e
             name: Salle technique
       - type: entities
         entities:
-          - entity: sensor.temperature_xiaomi_f7ff
-            name: Chambre Mauve
           - entity: sensor.temperature_xiaomi_b871
             name: Salle de bain
-          - entity: sensor.temperature_xiaomi_ed49
-            name: Salon
           - entity: sensor.temperature_xiaomi_b495
             name: Extension
           - entity: sensor.temperature_xiaomi_c59e
@@ -76,7 +68,11 @@ views:
           - entity: sensor.humidty_xiaomi_b459
             name: Entretoit extension
           - entity: sensor.humidty_xiaomi_f7ca
-            name: Entretoit maison
+            name: Entretoit maison centre haut
+          - entity: sensor.humidty_xiaomi_f7ff
+            name: Entretoit maison centre bas 
+          - entity: sensor.humidty_xiaomi_ed49
+            name: Entretoit maison sud bas 
           - entity: sensor.humidty_xiaomi_d2cb
             name: Vide sanitaire
           - entity: sensor.exterior_humidity
@@ -86,7 +82,11 @@ views:
           - entity: sensor.temperature_xiaomi_b459
             name: Entretoit extension
           - entity: sensor.temperature_xiaomi_f7ca
-            name: Entretoit maison
+            name: Entretoit maison centre haut
+          - entity: sensor.temperature_xiaomi_f7ff
+            name: Entretoit maison centre bas 
+          - entity: sensor.temperature_xiaomi_ed49
+            name: Entretoit maison sud bas 
           - entity: sensor.temperature_xiaomi_d2cb
             name: Vide sanitaire
           - entity: sensor.exterior_temperature
@@ -94,15 +94,15 @@ views:
       - type: history-graph
         entities:
           - entity: sensor.humidty_xiaomi_f7ca
-            name: Entretoit maison
+            name: Entretoit maison centre haut
+          - entity: sensor.humidty_xiaomi_f7ff
+            name: Entretoit maison centre bas
+          - entity: sensor.humidty_xiaomi_ed49
+            name: Entretoit maison sud bas 
           - entity: sensor.humidty_xiaomi_c59e
             name: Salle technique
-          - entity: sensor.humidty_xiaomi_f7ff
-            name: Chambre Mauve
           - entity: sensor.humidty_xiaomi_b871
             name: Salle de bain
-          - entity: sensor.humidty_xiaomi_ed49
-            name: Salon
           - entity: sensor.humidty_xiaomi_b459
             name: Entretoit extension
           - entity: sensor.humidty_xiaomi_b495
@@ -115,15 +115,15 @@ views:
       - type: history-graph
         entities:
           - entity: sensor.temperature_xiaomi_f7ca
-            name: Entretoit maison
+            name: Entretoit maison centre haut
+          - entity: sensor.temperature_xiaomi_f7ff
+            name: Entretoit maison centre bas    
+          - entity: sensor.temperature_xiaomi_ed49
+            name: Entretoit maison sud bas        
           - entity: sensor.temperature_xiaomi_c59e
             name: Salle technique
-          - entity: sensor.temperature_xiaomi_f7ff
-            name: Chambre Mauve
           - entity: sensor.temperature_xiaomi_b871
             name: Salle de bain
-          - entity: sensor.temperature_xiaomi_ed49
-            name: Salon
           - entity: sensor.temperature_xiaomi_b459
             name: Entretoit extension
           - entity: sensor.temperature_xiaomi_b495

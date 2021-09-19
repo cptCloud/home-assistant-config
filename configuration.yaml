@@ -46,10 +46,10 @@ tplink:
   switch:
     host: !secret switch1
   dimmer:
-    host: !secret dimmer1
-    host: !secret dimmer2
-    host: !secret dimmer3
-    host: !secret dimmer4
+    - host: !secret dimmer1
+    - host: !secret dimmer2
+    - host: !secret dimmer3
+    - host: !secret dimmer4
  
 speedtestdotnet:
   scan_interval:

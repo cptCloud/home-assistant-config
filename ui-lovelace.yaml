@@ -45,9 +45,9 @@ views:
         title: Lumières
         entities:
           - entity: switch.lumiere_entree_exterieure
-          - entity: switch.sous-sol_bureau
-          - entity: switch.sous-sol_lavage
-          - entity: switch.sous-sol_tv
+          - entity: light.sous_sol_bureau
+          - entity: light.sous_sol_lavage
+          - entity: light.sous_sol_tv
           - entity: light.salon
         state_color: true
       - type: entities
